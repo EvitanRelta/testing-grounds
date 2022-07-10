@@ -1,2 +1,1 @@
-src/githubMarkdownCss/**/*.css linguist-vendored=true
-src/githubMarkdownCss/container.css linguist-vendored=false
+src/githubMarkdownCss/**/*.css linguist-vendored
