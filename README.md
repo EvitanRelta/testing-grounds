@@ -1,13 +1,16 @@
-# Image Galore
+1. First ordered list item
+2. Another item
+⋅⋅* Unordered sub-list. 
+1. Actual numbers don't matter, just that it's a number
+⋅⋅1. Ordered sub-list
+4. And another item.
 
-![](https://images.unsplash.com/photo-1593339545943-4018eb6da2e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2127&q=80)
+⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
 
-![](https://img.wallpapersafari.com/desktop/1440/900/15/23/4YfLH9.jpg)
+⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
+⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
+⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
 
-![](https://img.wallpapersafari.com/desktop/1920/1080/75/76/0iaRwB.jpg)
-
-![](https://img.wallpapersafari.com/desktop/1920/1080/60/82/S7RlJq.jpg)
-
-![](https://img.wallpapersafari.com/desktop/1920/1080/18/50/y6K5PL.jpg)
-
-![](https://img.wallpapersafari.com/desktop/1920/1080/89/60/qROdeV.jpg)
+* Unordered list can use asterisks
+- Or minuses
++ Or pluses
