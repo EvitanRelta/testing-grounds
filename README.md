@@ -1,9 +1,25 @@
-# TEST HEADER
+MarkGH aims to streamline all that by auto-switching to HTML-syntax when required, to achieve the desired look.
+<br>
 
-<h1>TEST HEADER HTML</h1>
+## How is this different from other editors?
 
-<details>
-  <summary>Epcot Center</summary>
-  <h1>Stuff</h1>
-  <p>desc</p>
-</details>
+<br><br>
+
+MarkGH aims to streamline all that by auto-switching to HTML-syntax when required, to achieve the desired look.
+
+## How is this different from other editors?
+
+<br><br>
+
+MarkGH aims to streamline all that by auto-switching to HTML-syntax when required, to achieve the desired look.
+
+<br>
+## How is this different from other editors?
+
+<br><br>
+
+MarkGH aims to streamline all that by auto-switching to HTML-syntax when required, to achieve the desired look.
+
+<br>
+
+## How is this different from other editors?
