@@ -5,3 +5,19 @@
 </picture>
 
 www&#46;google&#46;com
+
+<pre lang="javascript"><code>
+
+const x
+asd
+
+</code></pre>
+
+```javascript
+
+
+const x
+asd
+
+
+```
