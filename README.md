@@ -6,6 +6,10 @@
 
 www&#46;google&#46;com
 
+[Unrelated AB](https://unrelated.url/A/B)
+
+[image](assets/logo.png)
+
 <pre lang="javascript"><code>
 
 const x
