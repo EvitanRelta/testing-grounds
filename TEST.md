@@ -1,22 +1,13 @@
 <h1 align="center">
-  MarkGH <img src="./assets/logo.png" height="30" />
+  
+  &nbsp; MarkGH [<img height="30" src="/EvitanRelta/testing-grounds/raw/master/assets/logo.png" />](/EvitanRelta/testing-grounds/blob/master/assets/logo.png)
+  
 </h1>
 
-Online markdown editor for&nbsp; <img src="./assets/github_logo.png" height="25" />
+Online markdown editor for  [<img height="25" src="/EvitanRelta/testing-grounds/raw/master/assets/github_logo.png" />](/EvitanRelta/testing-grounds/blob/master/assets/github_logo.png)
 
-Avoid writing **_raw markdown_**
+Avoid writing ***raw markdown***
 
-Edit it like a **_Word document_**
+Edit it like a ***Word document***
 
-## Hide this HTML-Markdown mess:
-
-```markdown
-<h1 align="center">
-  MarkGH <img src="./assets/github_logo.png" height="30" />
-</h1>
-
-Online markdown editor for&nbsp; <img src="./assets/github_logo.png" height="25" />
-
-*   Avoid writing **_raw markdown_**
-*   Edit it like a **_Word document_**
-```
+## [](#hide-this-html-markdown-mess)Hide this HTML-Markdown mess:
