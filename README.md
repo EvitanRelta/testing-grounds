@@ -1,3 +1,9 @@
+[current](./)
+
+[before](../)
+
+[before + A](../A)
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/35413456/180746525-4c0f967c-e280-48df-92fd-4750d0e14789.png">
   <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/35413456/180746664-334b6b2e-0829-4a32-9239-f7d4f1ba30d2.png">
