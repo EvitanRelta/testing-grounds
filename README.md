@@ -1,8 +1,6 @@
-[current](./)
+![](http://4.bp.blogspot.com/_B5E5HPIKKBY/TCgENnaXouI/AAAAAAAAAZs/JHip18_p03M/s320/Screen+shot+2010-06-27+at+10.08.28+PM.png)
 
-[before](../)
-
-[before + A](../A)
+<img height="100" src="http://4.bp.blogspot.com/_B5E5HPIKKBY/TCgENnaXouI/AAAAAAAAAZs/JHip18_p03M/s320/Screen+shot+2010-06-27+at+10.08.28+PM.png" alt="Image Alt" />
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/35413456/180746525-4c0f967c-e280-48df-92fd-4750d0e14789.png">
