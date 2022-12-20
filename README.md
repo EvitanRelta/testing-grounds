@@ -1,10 +1,10 @@
-<table width="100%">
+<table>
   <tr>
-    <td>
+    <td width="50%">
 <pre><code>- Item
 </code></pre>
     </td>
-    <td>
+    <td width="50%">
 <pre><code>- Item
 </code></pre>
     </td>
