@@ -1,10 +1,15 @@
----
-
-<p><br></p>
-
----
-
-<br>
+<table width="100%">
+  <tr>
+    <td>
+<pre><code>- Item
+</code></pre>
+    </td>
+    <td>
+<pre><code>- Item
+</code></pre>
+    </td>
+  </tr>
+</table>
 
 ---
 
