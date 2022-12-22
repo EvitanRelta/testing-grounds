@@ -1,59 +1,90 @@
-<table>
-  <tr>
-    <td width="50%">
-<pre><code>- Item
-</code></pre>
-    </td>
-    <td width="50%">
-<pre><code>- Item
-</code></pre>
-    </td>
-  </tr>
-</table>
+<h1 align="center">
+  <img alt="HTMLarkdown Title" src="https://user-images.githubusercontent.com/35413456/209060922-954f6c6b-8ad9-474d-8901-e03ddc7c4e9c.gif" width="70%">
+</h1>
 
----
+<br>
 
-![](http://4.bp.blogspot.com/_B5E5HPIKKBY/TCgENnaXouI/AAAAAAAAAZs/JHip18_p03M/s320/Screen+shot+2010-06-27+at+10.08.28+PM.png)
+HTMLarkdown is a HTML-to-Markdown converter that switches to HTML-syntax whenever necessary.
 
-<img height="100" src="http://4.bp.blogspot.com/_B5E5HPIKKBY/TCgENnaXouI/AAAAAAAAAZs/JHip18_p03M/s320/Screen+shot+2010-06-27+at+10.08.28+PM.png" alt="Image Alt" />
+Written completely in **TypeScript**.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/35413456/180746525-4c0f967c-e280-48df-92fd-4750d0e14789.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/35413456/180746664-334b6b2e-0829-4a32-9239-f7d4f1ba30d2.png">
-  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/35413456/180746664-334b6b2e-0829-4a32-9239-f7d4f1ba30d2.png">
-</picture>
+<br>
 
-www&#46;google&#46;com
+## How is this different?
 
-[Unrelated AB](https://unrelated.url/A/B)
+### Switching to HTML-syntax
 
-[image](assets/logo.png)
+Compared to other HTML-to-Markdown converters, HTMLarkdown allows HTML-in
 
-<pre lang="javascript"><code>
+Whenever elements cannot be represented in pure-markdown syntax, HTMLarkdown will switch to HTML-syntax:
 
-const x
-asd
-
-</code></pre>
-
-```javascript
-
-
-const x
-asd
-
-
+```html
+<h1>Normal-heading is <strong>boring</strong></h1>
+<h1 align="center">
+  Centered-heading is <strong>da wae</strong>
+</h1>
+<p><img alt="My Image" src="https://image.src" /></p>
+<p><img alt="My Image" width="80%" src="https://image.src" /></p>
 ```
 
+```html
+# Normal-heading is **boring**
 
+<h1 align="center">
+  Centered-heading is <b>da wae</b>
+</h1>
+
+![My Image](https://image.src)
+
+<img alt="My Image" width="80%" src="https://image.src" />
 ```
 
+<br>
 
-const x
-asd
+HTMLarkdown aims to use as much Markdown-syntax as possible, mixing markdown and HTML if possible:
 
-
+```html
+<blockquote>
+  <p align="center">
+    Centered-paragraph
+  </p>
+  <p>Below is a horizontal-rule in blockquote:</p>
+  <hr>
+</blockquote>
 ```
 
--
-- <br>
+```html
+> <p align="center">
+>   Centered-paragraph
+> </p>
+> Below is a horizontal-rule in blockquote:
+> 
+> <hr>
+```
+
+<br>
+
+### Edge cases
+
+HTMLarkdown also handles edge cases, such as adding separators to prevent adjacent lists from being combined by markdown-renderers:
+
+```html
+<ul>
+  <li>List 1 > item 1</li>
+  <li>List 1 > item 2</li>
+</ul>
+<ul>
+  <li>List 2 > item 1</li>
+  <li>List 2 > item 2</li>
+</ul>
+```
+
+```
+- List 1 > item 1
+- List 1 > item 2
+
+<!-- LIST_SEPARATOR -->
+
+- List 2 > item 1
+- List 2 > item 2
+```
