@@ -1,5 +1,3 @@
-# HTMLarkdown
-
 <h1 align="center">
   <img alt="HTMLarkdown Title" src="https://user-images.githubusercontent.com/35413456/209060922-954f6c6b-8ad9-474d-8901-e03ddc7c4e9c.gif" width="70%">
 </h1>
@@ -12,9 +10,9 @@ Written completely in **TypeScript**.
 
 <br>
 
-## How is this different?
+# How is this different?
 
-### Switching to HTML-syntax
+## Switching to HTML-syntax
 
 Compared to other HTML-to-Markdown converters, HTMLarkdown allows HTML-in
 
@@ -66,7 +64,7 @@ HTMLarkdown aims to use as much Markdown-syntax as possible, mixing markdown and
 
 <br>
 
-### Edge cases
+## Edge cases
 
 HTMLarkdown also handles edge cases, such as adding separators to prevent adjacent lists from being combined by markdown-renderers:
 
