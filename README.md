@@ -1,4 +1,4 @@
-# HTMLarkdwon
+# HTMLarkdown
 
 <h1 align="center">
   <img alt="HTMLarkdown Title" src="https://user-images.githubusercontent.com/35413456/209060922-954f6c6b-8ad9-474d-8901-e03ddc7c4e9c.gif" width="70%">
