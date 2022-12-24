@@ -2,6 +2,9 @@
   <img alt="HTMLarkdown Title" src="https://user-images.githubusercontent.com/35413456/209060922-954f6c6b-8ad9-474d-8901-e03ddc7c4e9c.gif" width="70%">
 </h1>
 
+![htmlarkdown_dark](https://user-images.githubusercontent.com/35413456/209439924-476e07c9-d6c7-4bc0-bd95-b4a737c2580b.gif)
+
+
 <br>
 
 HTMLarkdown is a **<ins>HTML-to-Markdown converter</ins>** that's able to output HTML-syntax when required.  
