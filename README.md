@@ -4,9 +4,18 @@
 
 <br>
 
-HTMLarkdown is a HTML-to-Markdown converter that switches to HTML-syntax whenever necessary.
+HTMLarkdown is a **<ins>HTML-to-Markdown converter</ins>** that's able to output HTML-syntax when required.  
+Like for center-aligning:
 
-Written completely in **TypeScript**.
+```html
+# Heading Markdown
+
+<h1 align="center">
+  Centered Heading (needs to be in HTML-syntax)
+</h1>
+```
+
+Written completely in <img height="15" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg"> **<ins>TypeScript</ins>**.
 
 <br>
 
@@ -14,77 +23,78 @@ Written completely in **TypeScript**.
 
 ## Switching to HTML-syntax
 
-Compared to other HTML-to-Markdown converters, HTMLarkdown allows HTML-in
+Whenever elements **<ins>cannot be represented in markdown-syntax**</ins>, HTMLarkdown will **<ins>switch to HTML-syntax</ins>**:
 
-Whenever elements cannot be represented in pure-markdown syntax, HTMLarkdown will switch to HTML-syntax:
+<table>
+    <thead>
+        <tr>
+            <th width=500>Input HTML</th>
+            <th width=500>Output Markdown</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+<pre lang="html"><code>&lt;h1>Normal-heading is &lt;strong>boring&lt;/strong>&lt;/h1>
+<!-- BLANK_LINE -->
+&lt;h1 align="center">
+  Centered-heading is &lt;strong>da wae&lt;/strong>
+&lt;/h1>
+<!-- BLANK_LINE -->
+&lt;p>&lt;img src="https://image.src" />&lt;/p>
+<!-- BLANK_LINE -->
+&lt;p>&lt;img width="80%" src="https://image.src" />&lt;/p>
+</code></pre>
+            </td>
+            <td>
+<pre lang="html"><code># Normal-heading is **boring**
+<!-- BLANK_LINE -->
+&lt;h1 align="center">
+  Centered-heading is &lt;b>da wae&lt;/b>
+&lt;/h1>
+<!-- BLANK_LINE -->
+![](https://image.src)
+<!-- BLANK_LINE -->
+&lt;img width="80%" src="https://image.src" />
+</code></pre>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-```html
-<h1>Normal-heading is <strong>boring</strong></h1>
-<h1 align="center">
-  Centered-heading is <strong>da wae</strong>
-</h1>
-<p><img alt="My Image" src="https://image.src" /></p>
-<p><img alt="My Image" width="80%" src="https://image.src" /></p>
-```
-
-```html
-# Normal-heading is **boring**
-
-<h1 align="center">
-  Centered-heading is <b>da wae</b>
-</h1>
-
-![My Image](https://image.src)
-
-<img alt="My Image" width="80%" src="https://image.src" />
-```
 
 <br>
 
-HTMLarkdown aims to use as much Markdown-syntax as possible, mixing markdown and HTML if possible:
+But HTMLarkdown tries use as **<ins>little HTML-syntax</ins>** as possible. **<ins>Mixing markdown and HTML</ins>** if needed:
 
-```html
-<blockquote>
-  <p align="center">
+<table>
+    <thead>
+        <tr>
+            <th width=500>Input HTML</th>
+            <th width=500>Output Markdown</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+<pre lang="html"><code>&lt;blockquote>
+  &lt;p align="center">
     Centered-paragraph
-  </p>
-  <p>Below is a horizontal-rule in blockquote:</p>
-  <hr>
-</blockquote>
-```
-
-```html
-> <p align="center">
+  &lt;/p>
+  &lt;p>Below is a horizontal-rule in blockquote:&lt;/p>
+  &lt;hr>
+&lt;/blockquote>
+</code></pre>
+            </td>
+            <td>
+<pre lang="html"><code>> &lt;p align="center">
 >   Centered-paragraph
-> </p>
+> &lt;/p>
 > Below is a horizontal-rule in blockquote:
 > 
-> <hr>
-```
-
-<br>
-
-## Edge cases
-
-HTMLarkdown also handles edge cases, such as adding separators to prevent adjacent lists from being combined by markdown-renderers:
-
-```html
-<ul>
-  <li>List 1 > item 1</li>
-  <li>List 1 > item 2</li>
-</ul>
-<ul>
-  <li>List 2 > item 1</li>
-  <li>List 2 > item 2</li>
-</ul>
-```
-
-```
-- List 1 > item 1
-- List 1 > item 2
-
-<!-- LIST_SEPARATOR -->
-
-- List 2 > item 1
-- List 2 > item 2
-```
+> &lt;hr>
+</code></pre>
+            </td>
+        </tr>
+    </tbody>
+</table>
