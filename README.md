@@ -1,7 +1,7 @@
 <h1 align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/EvitanRelta/testing-grounds/master/assets/htmlarkdown_dark_bigger_text.webp">
-    <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/35413456/209442374-03df7a77-bfd9-4329-85d7-2d89f18ddc2a.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/EvitanRelta/testing-grounds/master/assets/htmlarkdown_light.webp">
     <img alt="HTMLarkdown Title" src="https://raw.githubusercontent.com/EvitanRelta/testing-grounds/master/assets/htmlarkdown_dark_bigger_text.webp" width="90%">
   </picture>
 </h1>
