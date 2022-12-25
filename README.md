@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/EvitanRelta/testing-grounds/master/assets/htmlarkdown_dark_bigger_text.webp">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/EvitanRelta/testing-grounds/master/assets/htmlarkdown_light.webp">
-    <img alt="HTMLarkdown Title" src="https://raw.githubusercontent.com/EvitanRelta/testing-grounds/master/assets/htmlarkdown_dark_bigger_text.webp" width="90%">
+    <img alt="HTMLarkdown Title" src="https://raw.githubusercontent.com/EvitanRelta/testing-grounds/master/assets/htmlarkdown_dark_bigger_text.webp" width="700">
   </picture>
 </h1>
 
