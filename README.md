@@ -102,3 +102,42 @@ But HTMLarkdown tries use as **<ins>little HTML-syntax</ins>** as possible. **<i
         </tr>
     </tbody>
 </table>
+
+
+Switching between markdown's **<ins>backslash-escaping</ins>** and **<ins>HTML-escaping</ins>** depending on the situation:
+
+<table>
+    <thead>
+        <tr>
+            <th width=500>Input HTML</th>
+            <th width=500>Output Markdown</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+<pre lang="html"><code>&lt;p>In markdown: &amp;lt;TAG&amp;gt;, **NOT BOLD**&lt;/p>
+&lt;p>
+  &lt;sup>
+      In in-line HTML: 
+      &amp;lt;TAG&amp;gt;, **NOT BOLD**
+  &lt;/sup>
+&lt;/p>
+&lt;p align="center">
+  In block HTML:  &amp;lt;TAG&amp;gt;, **NOT BOLD**
+&lt;/p>
+</code></pre>
+            </td>
+            <td>
+<pre lang="html"><code>In markdown: \&lt;TAG>, \*\*
+<!-- BLANK_LINE -->
+&lt;sup>In in-line HTML: \&lt;TAG>, \*\*&lt;/sup>
+<!-- BLANK_LINE -->
+&lt;p align="center">
+  In block HTML: &amp;lt;TAG>, **
+&lt;/p>
+</code></pre>
+            </td>
+        </tr>
+    </tbody>
+</table>
