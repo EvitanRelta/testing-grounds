@@ -249,10 +249,7 @@ const htmlarkdown = new HTMLarkdown({
     addTrailingLinebreak: true
 })
 
-/**
- * Or on an existing instance, 
- * if ure against NTR-ing ur existing one. 
- */
+/** Or on an existing instance. */
 htmlarkdown.options.maxPrettyTableWidth = -1
 ```
 
@@ -301,7 +298,7 @@ htmlarkdown.loadPlugins([myPlugin])
 
 ## Making a copy of an instance
 
-The conversion of a `HTMLarkdown` instance solely depends on its `options` property.  
+The conversion of a `HTMLarkdown` instance **<ins>solely</ins>** depends on its `options` property.  
 Meaning, you create a copy of an instance like this:
 
 ```js
@@ -357,7 +354,11 @@ HTMLarkdown has 3 distinct phases:
    The raw markdown string is then passed consecutively to each `PostProcess` in `options.postProcess`, to give the final markdown.
 
 <p align="center">
-  <img src="./assets/rule_processes_flow_chart_dark.jpg">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/rule_processes_flow_chart_dark.jpg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/rule_processes_flow_chart_light.jpg">
+    <img alt="Rule-processes flowchart" src="./assets/rule_processes_flow_chart_light.jpg">
+  </picture>
   <br><i>(<b>image:</b> the general flow of HTMLarkdown)</i>
 </p>
 
@@ -486,7 +487,7 @@ Misc:
 <br>
 
 Features to be added:
-- [ ] Custom `id` attributes
+- Custom `id` attributes
   ```html
   Go to [section with id](#my-section)
 
@@ -494,7 +495,7 @@ Features to be added:
     My section
   </p>
   ```
-- [ ] Reversing GitHub's Issue/PR autolinks
+- Reversing GitHub's Issue/PR autolinks
   <table>
       <thead>
           <tr>
@@ -518,7 +519,7 @@ Features to be added:
           </tr>
       </tbody>
   </table>
-- [ ] Ability to customise how codeblock's syntax-highlighting langauge is obtained from the `<pre><code>` elements
+- Ability to customise how codeblock's syntax-highlighting langauge is obtained from the `<pre><code>` elements
 
 <br>
 
