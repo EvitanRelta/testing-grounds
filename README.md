@@ -23,6 +23,8 @@ Like when center-aligning, or resizing images:
 - Has many Jest [tests](./tests), covering many edge-case conversions.
   > _[Leave a issue/PR](#new-conversions-ideas-features-tests) if you can think of more!_
 - [For now](#other-markdown-specs), is designed for [GFM].
+- Try it out at the demo site below!  
+  https://evitanrelta.github.io/htmlarkdown
 
 [GFM]: https://github.github.com/gfm/
 
@@ -71,9 +73,11 @@ Whenever elements **<ins>cannot be represented</ins>** in markdown-syntax, HTMLa
     </tbody>
 </table>
 
+> _**Note:** The HTML-switching is controlled by the rules' `Rule.toUseHtmlPredicate`._
+
 <br>
 
-But HTMLarkdown tries use as **<ins>little HTML-syntax</ins>** as possible. **<ins>Mixing markdown and HTML</ins>** if needed:
+But HTMLarkdown tries to use as **<ins>little HTML-syntax</ins>** as possible. **<ins>Mixing markdown and HTML</ins>** if needed:
 
 <table>
     <thead>
@@ -359,7 +363,7 @@ HTMLarkdown has 3 distinct phases:
     <source media="(prefers-color-scheme: light)" srcset="./assets/rule_processes_flow_chart_light.jpg">
     <img alt="Rule-processes flowchart" src="./assets/rule_processes_flow_chart_light.jpg">
   </picture>
-  <br><i>(<b>image:</b> the general flow of HTMLarkdown)</i>
+  <br><i>(<b>image:</b> the general conversion flow of HTMLarkdown)</i>
 </p>
 
 <br>
@@ -534,4 +538,4 @@ Features to be added:
 # License
 
 The MIT License (MIT).  
-So its freeeeeee
+So it's freeeeeee
