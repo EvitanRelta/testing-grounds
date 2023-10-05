@@ -1,6 +1,7 @@
-import psycopg2
 import os
 import traceback
+
+import psycopg2
 from fastapi import HTTPException
 
 
