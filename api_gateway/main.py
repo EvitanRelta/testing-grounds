@@ -3,9 +3,13 @@ import json
 import httpx
 from fastapi import FastAPI, HTTPException, Request, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
-from utils.api_gateway_util import (attach_cookie, check_permission,
-                                    connect_matching_service_websocket,
-                                    delete_cookie, map_path_microservice_url)
+from utils.api_gateway_util import (
+    attach_cookie,
+    check_permission,
+    connect_matching_service_websocket,
+    delete_cookie,
+    map_path_microservice_url,
+)
 
 app = FastAPI()
 
