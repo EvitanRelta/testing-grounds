@@ -15,16 +15,6 @@ jobs:
       with:
         fetch-depth: 0 # Fetch all history so we can check the entire branch
 
-    - name: Install GitHub CLI
-      run: |
-        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-        sudo apt-add-repository https://cli.github.com/packages
-        sudo apt update
-        sudo apt install gh
-
-    - name: Authenticate with GitHub CLI
-      run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
-
     - name: Enforce semi-linear history
       run: |
         # Get the target branch name
@@ -41,3 +31,5 @@ jobs:
           echo "Error: Your branch must be created from the latest commit on ${TARGET_BRANCH}."
           exit 1
         fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
