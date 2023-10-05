@@ -5,6 +5,10 @@ on:
     types:
       - synchronize
       - opened
+      - reopened
+  push:
+    branches:
+      - '**'
 
 jobs:
   check-history:
