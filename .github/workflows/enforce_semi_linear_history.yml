@@ -18,10 +18,7 @@ jobs:
     - name: Enforce semi-linear history
       run: |
         # Get the target branch name
-        PR_JSON=$(gh pr view ${PR_NUMBER} --json)
-        echo "PR JSON: ${PR_JSON}"
-        
-        TARGET_BRANCH=$(echo "${PR_JSON}" | jq -r '.baseRefName')
+        TARGET_BRANCH=$(gh pr view ${PR_NUMBER} --json baseRefName -q '.baseRefName')
         echo "Target branch: ${TARGET_BRANCH}"
 
         # Get the SHA of the latest commit on the target branch
