@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException,  WebSocket
+from fastapi import FastAPI, HTTPException, WebSocket
 import json
 from fastapi.middleware.cors import CORSMiddleware
 import threading
@@ -19,16 +19,16 @@ app.add_middleware(
 
 app = FastAPI()
 
+
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
-
     await websocket.accept()
 
     try:
         # Receive message from client
         message = await websocket.receive_text()
 
-        request =  json.loads(message)
+        request = json.loads(message)
         detail = request["detail"]
         user_id = detail["user_id"]
 
@@ -37,6 +37,7 @@ async def websocket_endpoint(websocket: WebSocket):
 
     except HTTPException as http_exc:
         await websocket.send_text(http_exc.detail)
+
 
 matching_thread = threading.Thread(target=check_for_matches)
 matching_thread.start()
