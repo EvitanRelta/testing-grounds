@@ -1,4 +1,5 @@
 import unittest
+
 import requests
 
 data = {"username": "testuser2", "email": "test2@example.com", "password": "testpassword"}
