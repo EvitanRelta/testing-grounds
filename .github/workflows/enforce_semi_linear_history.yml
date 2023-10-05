@@ -6,9 +6,6 @@ on:
       - synchronize
       - opened
       - reopened
-  push:
-    branches:
-      - '**'
 
 jobs:
   check-history:
@@ -22,11 +19,8 @@ jobs:
 
     - name: Enforce semi-linear history
       run: |
-        # Attempt to get the target branch name
-        TARGET_BRANCH=$(gh pr view ${PR_NUMBER} --json baseRefName -q '.baseRefName') || {
-          echo "Not a PR or PR not found, skipping checks..."
-          exit 0
-        }
+        # Get the target branch name
+        TARGET_BRANCH=$(gh pr view ${PR_NUMBER} --json baseRefName -q '.baseRefName')
         echo "Target branch: ${TARGET_BRANCH}"
 
         # Get the SHA of the latest commit on the target branch
