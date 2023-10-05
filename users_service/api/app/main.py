@@ -1,9 +1,10 @@
 import uuid
+
+from controllers import sessions_controller as sc
+from controllers import users_controller as uc
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-
 from utils import requestModels as rm
-from controllers import users_controller as uc, sessions_controller as sc
 
 # create app
 app = FastAPI()
