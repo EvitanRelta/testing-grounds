@@ -17,13 +17,16 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
+        ref: ${{ github.event.pull_request.head.sha }}
         fetch-depth: 0 
 
-    - name: Enforce semi-linear history on PR
-      if: github.event_name == 'pull_request'
+    - name: Enforce semi-linear history
       run: |
-        # Get the target branch name
-        TARGET_BRANCH=$(gh pr view ${PR_NUMBER} --json baseRefName -q '.baseRefName')
+        # Attempt to get the target branch name
+        TARGET_BRANCH=$(gh pr view ${PR_NUMBER} --json baseRefName -q '.baseRefName') || {
+          echo "Not a PR or PR not found, skipping checks..."
+          exit 0
+        }
         echo "Target branch: ${TARGET_BRANCH}"
 
         # Get the SHA of the latest commit on the target branch
@@ -42,8 +45,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PR_NUMBER: ${{ github.event.pull_request.number }}
-    
-    - name: Pass check on direct push to branches
-      if: github.event_name == 'push'
-      run: |
-        echo "Direct push to branch detected. Passing check."
