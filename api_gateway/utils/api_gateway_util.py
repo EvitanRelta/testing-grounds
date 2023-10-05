@@ -5,9 +5,13 @@ import websockets
 from fastapi import HTTPException, WebSocket
 from fastapi.responses import JSONResponse
 
-from .addresses import (API_PORT, MATCHING_SERVICE_HOST,
-                        QUESTIONS_SERVICE_HOST, SESSIONS_SERVICE_HOST,
-                        USERS_SERVICE_HOST)
+from .addresses import (
+    API_PORT,
+    MATCHING_SERVICE_HOST,
+    QUESTIONS_SERVICE_HOST,
+    SESSIONS_SERVICE_HOST,
+    USERS_SERVICE_HOST,
+)
 from .api_permissions import *
 
 
