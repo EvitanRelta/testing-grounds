@@ -15,7 +15,7 @@ jobs:
       with:
         fetch-depth: 0 # Fetch all history so we can check the entire branch
 
-    - name: Enforce semi-linear history
+        - name: Enforce semi-linear history
       run: |
         # Get the target branch name
         TARGET_BRANCH=$(gh pr view ${PR_NUMBER} --json baseRefName -q '$.baseRefName')
