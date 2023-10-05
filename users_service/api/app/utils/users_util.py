@@ -1,5 +1,4 @@
 from fastapi import HTTPException
-
 from user_database import USER_DATABASE as db
 
 

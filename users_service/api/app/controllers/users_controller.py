@@ -1,4 +1,5 @@
 import hashlib
+
 from fastapi import HTTPException
 from user_database import USER_DATABASE as db
 from utils import users_util

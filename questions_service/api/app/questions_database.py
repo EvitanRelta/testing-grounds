@@ -1,5 +1,6 @@
-from database_model import Database
 import os
+
+from database_model import Database
 
 HOST = os.getenv("POSTGRES_HOST")
 PORT = os.getenv("POSTGRES_PORT")
