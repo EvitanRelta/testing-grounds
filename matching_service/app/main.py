@@ -1,10 +1,10 @@
-from fastapi import FastAPI, HTTPException, WebSocket
 import json
-from fastapi.middleware.cors import CORSMiddleware
 import threading
 
+from fastapi import FastAPI, HTTPException, WebSocket
+from fastapi.middleware.cors import CORSMiddleware
 from matching_util import User
-from queue_manager import queue, check_for_matches
+from queue_manager import check_for_matches, queue
 
 # create app
 app = FastAPI()

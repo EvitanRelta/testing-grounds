@@ -1,6 +1,7 @@
 import hashlib
+
 from user_database import USER_DATABASE as db
-from utils import users_util, sessions_util
+from utils import sessions_util, users_util
 
 
 def user_login(username: str, password: str):
