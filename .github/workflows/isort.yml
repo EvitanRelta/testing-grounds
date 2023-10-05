@@ -1,4 +1,4 @@
-name: Run isort
+name: Check if .py imports have been sorted by isort
 
 on:
   - push

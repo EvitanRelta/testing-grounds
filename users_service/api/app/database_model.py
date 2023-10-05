@@ -1,6 +1,7 @@
-import psycopg2
 import os
 import traceback
+
+import psycopg2
 from fastapi import HTTPException
 
 
@@ -15,16 +16,17 @@ class Database:
     def _connect(self):
         try:
             conn = psycopg2.connect(
-                host = self.host,
-                port = self.port,
-                database = self.database,
-                user = self.user,
-                password = self.password)
+                host=self.host,
+                port=self.port,
+                database=self.database,
+                user=self.user,
+                password=self.password,
+            )
             return conn
         except Exception:
             traceback.print_exc()
 
-    def execute_sql_write(self, sql_command: str, params: tuple=None):
+    def execute_sql_write(self, sql_command: str, params: tuple = None):
         conn = self._connect()
         try:
             with conn, conn.cursor() as cur:
@@ -41,7 +43,7 @@ class Database:
         except Exception as e:
             raise HTTPException(status_code=500, detail=str(e))
 
-    def execute_sql_read_fetchone(self, sql_command: str, params: tuple=None):
+    def execute_sql_read_fetchone(self, sql_command: str, params: tuple = None):
         conn = self._connect()
         try:
             with conn, conn.cursor() as cur:
@@ -56,7 +58,7 @@ class Database:
         except Exception as e:
             raise HTTPException(status_code=500, detail=str(e))
 
-    def execute_sql_read_fetchall(self, sql_command: str, params: tuple=None):
+    def execute_sql_read_fetchall(self, sql_command: str, params: tuple = None):
         conn = self._connect()
         try:
             with conn, conn.cursor() as cur:
