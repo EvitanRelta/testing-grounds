@@ -15,7 +15,24 @@ from config import config
 
 
 def encode_kactivation_cons(nn, man, element, offset, layerno, length, lbi, ubi, constraint_groups, need_pop, domain,
-                            activation_type, K=3, s=-2, approx=True):
+                            activation_type):
+    if config.approx_k == "triangle":
+        print(f"[KACT] Using triangle relaxation")
+        constraint_groups.append([])  # Handle triangle approximation in ai_milp.py directly
+        return
+
+    sparse_n, K, s, cutoff, approx = (
+        config.sparse_n,
+        config.k,
+        config.s,
+        config.cutoff,
+        config.approx_k,
+    )
+    print(
+        f"[INFO] Method={config.approx_k} ns={config.sparse_n} k={config.k} s={config.s} cutoff={config.cutoff:.2f}"
+    )
+    assert sparse_n > 0 and K > 2 and s > 0, "Invalid parameters for sparse encoding"
+
     if need_pop:
         constraint_groups.pop()
 
@@ -23,9 +40,13 @@ def encode_kactivation_cons(nn, man, element, offset, layerno, length, lbi, ubi,
     ubi = np.asarray(ubi, dtype=np.double)
 
     if activation_type == "ReLU":
-        kact_args = sparse_heuristic_with_cutoff(length, lbi, ubi, K=K, s=s)
+        kact_args = sparse_heuristic_with_cutoff(length, lbi, ubi, sparse_n, K, s, cutoff)
     else:
-        kact_args = sparse_heuristic_curve(length, lbi, ubi, activation_type == "Sigmoid", s=s)
+        kact_args = sparse_heuristic_curve(length, lbi, ubi, sparse_n, K, s, cutoff, activation_type == "Sigmoid")
+
+    if len(kact_args) == 0:
+        constraint_groups.append([])
+        return
 
     kact_cons = []
     tdim = ElinaDim(offset + length)
@@ -49,6 +70,7 @@ def encode_kactivation_cons(nn, man, element, offset, layerno, length, lbi, ubi,
                 make_kactivation_obj,
                 zip(input_hrep_array, [approx] * len(input_hrep_array)),
             )
+            kact_results = list(kact_results)
     else:
         total_size = 0
         for var_ids in kact_args:
@@ -66,7 +88,7 @@ def encode_kactivation_cons(nn, man, element, offset, layerno, length, lbi, ubi,
         upper_bounds = get_upper_bound_for_linexpr0(man, element, linexpr0, total_size, layerno)
 
         i = 0
-        input_hrep_array = []
+        input_hrep_array, lb_array, ub_array = [], [], []
         for var_ids in kact_args:
             input_hrep = []
             for coeffs in itertools.product([-1, 0, 1], repeat=len(var_ids)):
@@ -75,15 +97,32 @@ def encode_kactivation_cons(nn, man, element, offset, layerno, length, lbi, ubi,
                 input_hrep.append([upper_bounds[i]] + [-c for c in coeffs])
                 i += 1
             input_hrep_array.append(input_hrep)
+            lb_array.append([lbi[varid] for varid in var_ids])
+            ub_array.append([ubi[varid] for varid in var_ids])
+
         with multiprocessing.Pool(config.numproc) as pool:
             kact_results = pool.starmap(
                 make_kactivation_obj,
-                zip(input_hrep_array, [approx] * len(input_hrep_array)),
+                zip(input_hrep_array, lb_array, ub_array, [approx] * len(input_hrep_array)),
             )
+            kact_results = list(kact_results)
 
+    groups_num = constrs_num = coeffs_num_total = coeffs_num_zero = 0
     for gid, inst in enumerate(kact_results):
+        if inst.cons is None:
+            continue
         inst.varsid = kact_args[gid]
         kact_cons.append(inst)
+
+        if inst.cons.shape[0] == 3:
+            continue
+        groups_num += 1
+        constrs_num += inst.cons.shape[0]
+        coeffs_num = inst.cons.shape[0] * (
+            inst.cons.shape[1] - 1
+        )  # Count the non zero coefficients in inst.cons
+        coeffs_num_total += coeffs_num
+        coeffs_num_zero += coeffs_num - np.count_nonzero(inst.cons[:, :-1])
 
     if domain == "refinezono":
         element = dn.remove_dimensions(man, element, offset + length, 1)
